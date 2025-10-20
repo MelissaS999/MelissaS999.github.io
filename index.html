@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MelissaS999 - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-bottom: 3px solid #ff0000;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ff0000;
+            animation: fadeInDown 0.8s ease-out, glow 2s ease-in-out infinite;
+        }
+
+        header .username {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            color: #ff0000;
+            font-weight: 600;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        header p {
+            font-size: 1em;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+            color: #e0e0e0;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 1.8em;
+            color: #ff0000;
+            border-bottom: 3px solid #ff0000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff0000;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .skill-card h3 {
+            color: #ff0000;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .skill-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .experience-header h3 {
+            font-size: 1.3em;
+            color: #333;
+        }
+
+        .experience-header span {
+            color: #ff0000;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .experience-location {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .experience-description {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .certification-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .certification-item h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .certification-item .date {
+            color: #764ba2;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .certification-item p {
+            color: #666;
+            margin-top: 8px;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 30px 20px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .experience-header span {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MelissaS999</h1>
+            <div class="username">Melissa</div>
+            <p>Motivated and adaptable professional with strong experience in customer service and a solid foundation in responsive web design. Demonstrates effective communication in both English and German, equipped with robust computer proficiency including Microsoft Word and Excel. Eager to contribute to a team-oriented environment and continuously expand technical skills.</p>
+        </header>
+
+        <div class="content">
+            <!-- Skills Section -->
+            <section>
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Languages</h3>
+                        <p>English - Fluent (Speaking & Writing)<br>German - Fluent (Speaking & Writing)</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Computer Skills</h3>
+                        <p>Microsoft Word<br>Microsoft Excel</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Professional Strengths</h3>
+                        <p>Customer Service<br>Responsive Web Design<br>Team Collaboration<br>Adaptability</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section>
+                <h2>Experience</h2>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Supermarket Saleswoman</h3>
+                        <span>2011 - 2012</span>
+                    </div>
+                    <p class="experience-description">Provided excellent customer service in a retail environment, assisting customers and maintaining store operations.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>German Call Center Representative</h3>
+                        <span>2012 - 2015</span>
+                    </div>
+                    <div class="experience-location">Deutsche Call Center, Frankfurt am Main</div>
+                    <p class="experience-description">Handled customer inquiries in German, demonstrated multilingual communication skills, and provided support to diverse clientele in a fast-paced call center environment.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Auto Mechanic</h3>
+                        <span>2016 - 2016</span>
+                    </div>
+                    <p class="experience-description">Performed automotive maintenance and repair work, utilizing technical expertise and attention to detail.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Painter and Varnisher</h3>
+                        <span>2017 - 2018</span>
+                    </div>
+                    <p class="experience-description">Applied finishing techniques with precision, ensuring high-quality results in paint and varnish applications.</p>
+                </div>
+            </section>
+
+            <!-- Certifications Section -->
+            <section>
+                <h2>Certifications & Licenses</h2>
+
+                <div class="certification-item">
+                    <h3>Responsive Web Design Developer Certification</h3>
+                    <div class="date">May 2025 – Present</div>
+                    <p>Successfully completed the Responsive Web Design Developer Certification for 300 hours of work.</p>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 MelissaS999. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
