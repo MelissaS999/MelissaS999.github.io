@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MelissaS999 - Portfolio</title>
+    <title>Melissa Sturgill - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -44,64 +44,118 @@
             }
         }
 
-        @keyframes glow {
-            0%, 100% {
-                text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 500px;
+            }
+        }
+
+        @keyframes buttonHover {
+            0% {
+                transform: translateY(0);
             }
             50% {
-                text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+                transform: translateY(-3px);
+            }
+            100% {
+                transform: translateY(0);
             }
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(255, 0, 0, 0.15);
             overflow: hidden;
         }
 
         header {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            border-bottom: 3px solid #ff0000;
+            border-bottom: 4px solid #ff0000;
             color: white;
             padding: 40px;
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: flex-start;
         }
 
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #ff0000;
-            animation: fadeInDown 0.8s ease-out, glow 2s ease-in-out infinite;
+        .header-info {
+            animation: fadeInDown 0.8s ease-out;
         }
 
-        header .username {
-            font-size: 1.2em;
-            opacity: 0.9;
-            margin-bottom: 20px;
+        .header-info h1 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
             color: #ff0000;
-            font-weight: 600;
+            font-weight: 700;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.95em;
+            color: #e0e0e0;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info strong {
+            color: #ff0000;
+            min-width: 80px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
-        header p {
-            font-size: 1em;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-            color: #e0e0e0;
+        .nav-btn {
+            padding: 12px 20px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-btn:hover {
+            background: #cc0000;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .nav-btn.active {
+            background: #ff0000;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
         }
 
         .content {
@@ -109,148 +163,240 @@
         }
 
         section {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        section.hidden {
+            display: none;
         }
 
         section h2 {
-            font-size: 1.8em;
-            color: #ff0000;
-            border-bottom: 3px solid #ff0000;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
+            font-size: 2em;
+            color: #1a1a1a;
+            border-bottom: 4px solid #ff0000;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
             animation: slideInLeft 0.6s ease-out;
+            position: relative;
+        }
+
+        section h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -40px;
+            width: 4px;
+            height: 40px;
+            background: #ff0000;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .skill-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #ff0000;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #ff0000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
             animation: fadeInUp 0.6s ease-out;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.15);
         }
 
         .skill-card h3 {
             color: #ff0000;
-            margin-bottom: 10px;
-            font-size: 1.1em;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            font-weight: 700;
         }
 
         .skill-card p {
-            color: #666;
+            color: #555;
             font-size: 0.95em;
+            line-height: 1.8;
         }
 
         .experience-item {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e0e0e0;
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #ff0000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
         }
 
-        .experience-item:last-child {
-            border-bottom: none;
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.12);
         }
 
         .experience-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .experience-header h3 {
             font-size: 1.3em;
-            color: #333;
+            color: #1a1a1a;
+            font-weight: 700;
         }
 
         .experience-header span {
             color: #ff0000;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.95em;
+            background: #fff0f0;
+            padding: 4px 12px;
+            border-radius: 20px;
         }
 
         .experience-location {
             color: #666;
             font-style: italic;
             margin-bottom: 10px;
+            font-size: 0.95em;
         }
 
         .experience-description {
             color: #555;
-            line-height: 1.7;
-        }
-
-        .certification-item {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border-left: 4px solid #764ba2;
-        }
-
-        .certification-item h3 {
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .certification-item .date {
-            color: #764ba2;
-            font-weight: 600;
+            line-height: 1.8;
             font-size: 0.95em;
         }
 
+        .certification-item {
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff0000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 0.6s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        .certification-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.12);
+        }
+
+        .certification-item h3 {
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-size: 1.15em;
+            font-weight: 700;
+        }
+
+        .certification-item .date {
+            color: #ff0000;
+            font-weight: 700;
+            font-size: 0.95em;
+            background: #fff0f0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
         .certification-item p {
-            color: #666;
-            margin-top: 8px;
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.8;
         }
 
         footer {
-            background: #f8f9fa;
-            padding: 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 25px;
             text-align: center;
-            color: #666;
-            border-top: 1px solid #e0e0e0;
+            color: #e0e0e0;
+            border-top: 4px solid #ff0000;
+            font-size: 0.9em;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             header {
-                padding: 30px 20px;
+                grid-template-columns: 1fr;
+                padding: 30px;
             }
 
-            header h1 {
-                font-size: 2em;
+            .nav-buttons {
+                flex-direction: row;
+                flex-wrap: wrap;
             }
 
-            .content {
-                padding: 20px;
+            .nav-btn {
+                flex: 1;
+                min-width: 120px;
+            }
+
+            section h2 {
+                font-size: 1.6em;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
 
             .experience-header {
                 flex-direction: column;
             }
+        }
 
-            .experience-header span {
-                margin-top: 5px;
-            }
+        .summary-text {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ff0000;
+            line-height: 1.8;
+            color: #555;
+            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>MelissaS999</h1>
-            <div class="username">Melissa</div>
-            <p>Motivated and adaptable professional with strong experience in customer service and a solid foundation in responsive web design. Demonstrates effective communication in both English and German, equipped with robust computer proficiency including Microsoft Word and Excel. Eager to contribute to a team-oriented environment and continuously expand technical skills.</p>
+            <div class="header-info">
+                <h1>Melissa Sturgill</h1>
+                <div class="contact-info">
+                    <p><strong>Email:</strong> melissasturgill18@gmail.com</p>
+                    <p><strong>Location:</strong> Clintwood, VA 24228</p>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn active" onclick="showSection('summary')">Summary</button>
+                <button class="nav-btn" onclick="showSection('skills')">Skills</button>
+                <button class="nav-btn" onclick="showSection('experience')">Experience</button>
+                <button class="nav-btn" onclick="showSection('certifications')">Certifications</button>
+            </div>
         </header>
 
         <div class="content">
+            <!-- Summary Section -->
+            <section id="summary">
+                <h2>Professional Summary</h2>
+                <div class="summary-text">
+                    <p>Motivated and adaptable professional with strong experience in customer service and a solid foundation in responsive web design. Demonstrates effective communication in both English and German, equipped with robust computer proficiency including Microsoft Word and Excel. Eager to contribute to a team-oriented environment and continuously expand technical skills.</p>
+                </div>
+            </section>
+
             <!-- Skills Section -->
-            <section>
+            <section id="skills" class="hidden">
                 <h2>Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-card">
@@ -269,7 +415,7 @@
             </section>
 
             <!-- Experience Section -->
-            <section>
+            <section id="experience" class="hidden">
                 <h2>Experience</h2>
 
                 <div class="experience-item">
@@ -307,7 +453,7 @@
             </section>
 
             <!-- Certifications Section -->
-            <section>
+            <section id="certifications" class="hidden">
                 <h2>Certifications & Licenses</h2>
 
                 <div class="certification-item">
@@ -319,8 +465,30 @@
         </div>
 
         <footer>
-            <p>&copy; 2025 MelissaS999. All rights reserved.</p>
+            <p>&copy; 2025 Melissa Sturgill. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
